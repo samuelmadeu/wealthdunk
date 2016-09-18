@@ -1,0 +1,270 @@
+<html ng-app="weatlhDunkApp">
+	<head>
+		<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+		<link rel="stylesheet" type="text/css" href="style.css">
+		<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
+	</head>
+	<body  ng-controller="CalculationController">
+		<div id="wealth-dunk-navbar"> 
+			<nav class="navbar navbar-white"> 
+				<div class="container"> 
+					<div class="navbar-header"> 
+						<!-- <button type="button" class="collapsed navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-6" aria-expanded="false"> 
+							<span class="sr-only">Toggle navigation</span> 
+							<span class="icon-bar"></span> 
+							<span class="icon-bar"></span> 
+							<span class="icon-bar"></span> 
+						</button>  -->
+						<a href="#" class="navbar-brand">
+							<img src="img/Wealthdunk_black_logo.png" width="125px" />
+						</a> 
+					</div> 
+					<div class="collapse navbar-collapse"> 
+						<ul class="nav navbar-nav navbar-right"> 
+							<li class="active">
+								<a href="#">compare</a>
+							</li> 
+							<li>
+								<a href="#">learn</a>
+							</li> 
+							<li>
+								<a href="#">projections</a>
+							</li>
+							<li>
+								<a href="#">insights</a>
+							</li> 
+						</ul> 
+					</div> 
+				</div> 
+			</nav> 
+		</div>
+		<div class="main-content container">
+			<div class="row">
+				<div class="col-md-12">
+					<h3 class="text-center font-bold">Start investing the smart way</h2>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12">
+					<p class="text-center text-padding-top">
+						Robo Advisors are a lower cost, transparent and hassel-free way of having your money managed by expert investers. You can start with a little &#163;1, which is then invested into a portfolio that is personally managed for you and accessible online 24/7.
+					</p>
+				</div>
+			</div>
+			<div class="row">
+				<p class="text-center text-padding-top text-padding-bottom">
+					WealthDunk's free and independet comparison service can find you a suitable investment platform in minutes.
+				</p>
+			</div>
+		</div>
+		<div class="form-container container">
+			<div class="row">
+				<div class="col-md-12">
+					<form class="form-horizonal">
+						<label>Investment Amount</label>
+						<div class="row">
+							<div class="col-md-4">
+								<div class="input-group">
+								  <span class="input-group-addon">&#163;</span>
+								  <input ng-model="amount" type="number" class="form-control" placeholder="Enter Amount" step="any" />
+								</div>
+							</div>
+							<div class="col-md-offset-4 col-md-4">
+								<h4><b>Showing 1 - 6 of 6 results</b></h4>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-offset-2 col-md-7 annual-fee-box">
+					<p class="text-center">
+						Annual Fees <br />
+						<small>(Expressed in % and &#163;)</small>
+					</p>
+				</div>
+			</div>
+		</div>
+		<div class="table-container container">
+			<div class="row">
+				<div class="col-md-2">
+					<p>Company</p>
+					<abbr title="">?</abbr>
+				</div>
+				<div class="col-md-2">
+					<p>Management</p>
+					<abbr title="These are the fees charged by the Robo-Advisor themselves for managing your investment">?</abbr>
+				</div>
+				<div class="col-md-2">
+					<p>Underlaying</p>
+					<abbr title="These are the costs charged by the underlying funds or ETFs and the Robo-Advisor passes these costs on to you">?</abbr>
+				</div>
+				<div class="col-md-2">
+					<p>Initial Contribution</p>
+					<abbr title="Some Robo-Advisors charge a one-off fee for depositing your initial money. You'll only pay this fee once when depositing your money for the first time">?</abbr>
+				</div>
+				<div class="col-md-2">
+					<p>Illustrative First Year</p>
+					<abbr title="This is an estimated fee you'll be charged over your first year. It includes management, underling and initial contribution fees, though doesn’t take in to account any monthly contributions you plan on making">?</abbr>
+				</div>
+				<div class="col-md-2">
+					<p>Minimum Initial Investment</p>
+					<abbr title="The minimum initial investment is the amount of money you have to invest when opening an account. Some Robo-Advisors have a minimum required amount you have to invest when you get started.">?</abbr>
+				</div>
+			</div>
+			<div class="row investor-calcutions" ng-repeat="investor in investors">
+				<div class="col-md-2">
+					<img ng-src="{{investor.image}}" width="110" height="60" />
+					<p class="text-center">{{investor.company}}</p>
+				</div>
+				<div class="col-md-2">
+					<div>{{investor.management_pa}}%</div>
+					<div>&#163; {{ amount * investor.management_pa / 100 | number : 2}}</div>
+					<i> + </i>
+				</div>
+				<div class="col-md-2">
+					<div>{{investor.underlying_pa}}%</div>
+					<div>&#163; {{amount * investor.underlying_pa / 100 | number : 2}}</div>
+					<i> + </i>
+				</div>
+				<div class="col-md-2">
+					<div>{{investor.initial_contribution_pa}}%</div>
+					<div>- - -</div>
+					<i> = </i>
+				</div>
+				<div class="col-md-2">
+					<div>{{investor.management_pa + investor.underlying_pa + investor.initial_contribution_pa| number : 2}}%</div>
+					<div>&#163; {{amount * (investor.management_pa + investor.underlying_pa + investor.initial_contribution_pa) / 100 | number : 2}}</div>
+				</div>
+				<div class="col-md-2">
+					<div>{{investor.initial_investment}} <span ng-show="investor.initial_investment != '-'"></span></div>
+					<div ng-show="investor.initial_investment != '-'">
+						&#163; {{amount * investor.initial_investment / 100 | number : 2}}
+					</div>
+					<div class="pull-right" style="position:absolute; top:0px; right:-80px;padding-top:2px;">
+						<a href="javascript:void(0);" class="btn btn-info btn-sm btn-block" target="_blank">Go to Website</a>
+						<a href="javascript:void(0);" class="btn btn-success btn-sm btn-block" data-toggle="collapse" data-target="#{{investor.slug}}">More details
+						</a>
+					</div>
+				</div>
+				<!-- <div id="{{investor.slug}}" class="collapse investors-info" style="background:#f1f1f1; padding:10px 20px; margin-top:85px;">
+					<div class="row">
+						<div class="col-md-8">
+							<ul style="list-style:none; text-align:left; font-weight:normal;">
+								<li>
+									Manage 10 risk levels, each with a different mix of investment assets. They range from 'cautious' to 'aggressive'
+								</li>
+								<li>
+									Online questionnaire will help you determine which of the 10 risk-based portfolios is best for you
+								</li>
+								<li>
+									Typically rebalance customers portfolios once a month to keep them in line with the original optimal balance. May occasionaly decide on different allocations they believe are more suitable for customers in that particular month
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div> -->
+			</div>
+		</div>
+		<footer class="container-fluid">
+			<div class="row">
+				<div class="col-md-12">
+					<div class="container">
+						<div class="row">
+							<div class="col-md-3">
+								<ul>
+									<li><h4>Address</h4></li>
+									<li>The Refinery</li>
+									<li>13 Randor Walk</li>
+									<li>London</li>
+									<li>Sw3 4BP</li>
+								</ul>
+							</div>
+							<div class="col-md-3">
+								<ul>
+									<li><h4>About us</h4></li>
+									<li>Home</li>
+									<li>Compare</li>
+									<li>learn</li>
+									<li>Projections</li>
+									<li>Insights</li>
+									<li>Jargon Buster</li>
+								</ul>
+							</div>
+							<div class="col-md-2">
+								<ul>
+									<li><h4>News</h4></li>
+									<li>Economy</li>
+									<li>Investing</li>
+									<li>Life</li>
+									<li>Personal Finance</li>
+									<li>Retirement</li>
+								</ul>
+							</div>
+							<div class="col-md-4">
+								<ul>
+									<li><h4>WealthDunk Newsletter</h4></li>
+									<li>
+										<div class="row">
+											<div class="col-md-9">
+												<form id="newsletter-form" class="form-horizonal">
+													<div class="input-group">
+													  <input ng-modal="newletter" type="email" placeholder="Your Email Address" class="form-control">
+													  <span class="input-group-addon"><button type="submit" class="btn btn-success"><b> > </b></button></span>
+													</div>
+												</form>
+											</div>
+										</div>
+									</li>
+									<li id="social-icons">
+										<div class="row">
+											<div class="col-md-offset-1 col-md-9">
+												<a href="javascript:void(0);"><i class="fa fa-2x fa-facebook"></i></a>
+												<a href="javascript:void(0);"><i class="fa fa-2x fa-twitter"></i></a>
+												<a href="javascript:void(0);"><i class="fa fa-2x fa-instagram"></i></a>
+												<a href="javascript:void(0);"><i class="fa fa-2x fa-linkedin"></i></a>
+											</div>
+										</div>
+									</li>
+									
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12">
+					<div class="container">
+						<div class="row">
+							<div class="col-md-8">
+								<h4 class="text-center">You are here: Home</h4>
+							</div>
+							<div class="col-md-4">
+								<img src="img/Wealthdunk_white_logo.png" width="270" style="padding-left:40px;" />
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12">
+					<div class="container footer-bottom">
+						<div class="row">
+							<div class="col-md-12">
+								<small>&#169; 2016 Copyright WealthDunk.com | Registered Company: 10365358 | Website designed by <b>SoBold</b></small>
+								<p>
+									The information contained on this website is for general information purposes only and should not construed or regarded as investment advice. WealthDunk.com provides an introductory service for online investment managers and the operations may receive a fee form for each introduction made through this website.
+								</small>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</footer>
+		<script   src="https://code.jquery.com/jquery-3.1.0.min.js"   integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s="   crossorigin="anonymous"></script>
+		<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
+		<script src="controller.js"></script>
+	</body>
+</html>

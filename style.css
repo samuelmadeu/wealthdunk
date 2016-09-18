@@ -1,0 +1,232 @@
+body{
+	margin: 0;
+	padding: 0;
+	background: #fff;
+	font-family: "Open Sans";
+}
+
+body > div:last-child{
+	margin-bottom: 30px;
+}
+
+#wealth-dunk-navbar > .navbar-white{
+	background: #fff;
+	border: none;
+}
+
+#wealth-dunk-navbar > .navbar-white > .container{
+	width: 65%;
+	padding-top: 10px;
+}
+
+.main-content.container{
+	width: 63%;
+}
+
+#wealth-dunk-navbar > .navbar-white > .container > .navbar-header{
+
+}
+
+#wealth-dunk-navbar ul{
+    margin-top: 12px;
+}
+
+#wealth-dunk-navbar ul > li > a{
+	text-transform: uppercase;
+	font-size: 12px;
+    padding: 10px 5px;
+}
+
+#wealth-dunk-navbar ul > li > a:hover,
+#wealth-dunk-navbar ul > li > a:active,
+#wealth-dunk-navbar ul > li > a:focus{
+	background: none;
+}
+
+#wealth-dunk-navbar .navbar-header > a,
+#wealth-dunk-navbar ul > li > a{
+	color: #000;
+}
+
+.main-content > div:first-child h3.font-bold{
+	font-weight: 600;
+
+}
+
+.main-content p.text-padding-top{
+	padding-top: 35px;
+    font-size: 15px;
+}
+
+.main-content p.text-padding-bottom:last-child{
+	padding-bottom: 20px;
+    font-size: 15px;
+}
+
+.form-container.container {
+	width: 77%;
+}
+
+.annual-fee-box{
+	background: #e6e6e6;
+	border: 1px solid #CBD6DB;
+	border-top-right-radius: 10px;
+	border-top-left-radius: 10px; 
+	border-bottom: none;
+    margin-left: 14.9%;
+    width: 60.1%;
+}
+
+.annual-fee-box > p{
+	font-size: 15px;
+	font-weight: bold;
+	padding: 10px 10px 0px;
+	margin-bottom: 2px;
+}
+
+.table-container.container{
+	width:77.1%;
+	margin-bottom: 100px;
+}
+
+.table-container > div.row:first-child > div{
+	min-height: 50px;
+	background-color: #13C996;
+	border-top-left-radius: 12px;
+	width:15%;
+	border:1px solid #C9BDC4;
+	padding: 20px 20px 0px;
+	border-bottom: 2px solid #6F8DA0;
+}
+
+.table-container > div.row:first-child > div:last-child{
+	border-top-right-radius: 12px;
+}
+
+.table-container > div.row:first-child > div > p{
+	text-align: center;
+	color:#ffffff;
+	font-size: 12px;
+	font-weight: bold;
+    margin-bottom: 0px;
+    line-height: 1;
+}
+
+.table-container > div.row:first-child > div > abbr{
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    padding: 1px 5px;
+    background: #e6e6e6;
+    border-radius: 43px;
+    font-size: 8px;
+}
+
+.table-container > div.row:nth-child(n+2){
+    height: 95px;
+    background: #F0F0F0;
+    margin-bottom: 2px;
+    padding-top: 12px;
+}
+
+.table-container > div.row:nth-child(2)
+{
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.table-container > div.row:nth-child(n+2) > div{
+	width:15%;
+	text-align: center;
+	font-weight: bold;
+	color: #838383;
+	font-size: 13px;
+}
+
+/*.table-container > div.row:first-child > div:last-child{
+	width:10%;
+	background-color: #F1f1f1;
+	border:none;
+	border-radius: 0px;
+}*/
+
+.table-container > div.row:nth-child(n+2) > div:nth-child(n+2){
+	font-size: 17px;
+	color: #646464;
+	padding-top: 8px;
+}
+
+.table-container > div.row:nth-child(n+2) > div:nth-child(n+2) > i{
+	position: absolute;
+    top: 0px;
+    right: -15px;
+    font-size: 50px;
+    font-weight: normal;
+    color:#13C996;
+}
+
+.table-container > div.row:nth-child(n+2) > div:nth-child(n+2) > div{
+	padding-bottom: 5px; 
+}
+
+footer{
+	background-color: #3A3838;
+	height: 432px;
+	color:#ffffff;
+}
+
+footer > div{
+	padding-top: 40px;
+}
+
+footer > div:nth-child(2){
+	border-bottom: 2px solid #555454;
+	padding-bottom: 40px;
+}
+
+footer > div ul{
+	list-style: none;
+}
+
+footer ul > li{
+	line-height: 1.5;
+	font-size: 16px;
+}
+
+footer ul > li > h4{
+	color: #13C996;
+	font-size: 20px;
+}
+
+footer > div:last-child{
+	padding-top: 10px;
+}
+
+footer .footer-bottom{
+	width:93%;
+}
+
+footer .footer-bottom p{
+	font-size: 12px;
+}
+
+#newsletter-form .input-group-addon{
+	border: none;
+	border-radius: 0;
+	background: none;
+	padding: 0px;
+}
+
+#newsletter-form .input-group-addon > button{
+	border-radius: 0px;
+	margin-left: 2px;
+}
+
+#social-icons a > i{
+	color:#ffffff;
+	margin-left: 10px;
+}
+
+./*table-container > div.row:nth-child(n+2) > div:nth-child(n+2):last-child{
+	padding-top: 20px;
+}*/
