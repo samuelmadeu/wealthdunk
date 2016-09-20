@@ -1,0 +1,30 @@
+
+
+.intro_text 
+	{
+		font-size: 38px;
+		font-weight: 800px;
+	}
+
+.about_text
+	{
+		font-weight: 600px;
+	}
+
+.second_text
+	{
+		font-weight: 600px
+
+	}
+
+	.btn-success {
+    color: #fff;
+    background-color: #13C996;
+    border-color: #13C996;
+}
+
+.green_text {
+	color: #26d09a;
+}
+
+
