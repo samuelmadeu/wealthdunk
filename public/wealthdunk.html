@@ -43,26 +43,24 @@
 		<div class="main-content container">
 			<div class="row">
 				<div class="col-md-12">
-				<br><br><br><br><br><br>
-					<h3 class="intro_text green_text text-center font-bold ">Start investing the smart way</h2>
+				<br><br><br>
+					<h3 class="text-center font-bold">Start investing the smart way</h2>
 				</div>
+				<br><br>
 			</div>
-			<br>
 			<div class="row">
 				<div class="col-md-12">
-					<p class="about_text text-center text-padding-top">
+					<p class="semi_bold text-center text-padding-top">
 						Robo Advisors are a lower cost, transparent and hassel-free way of having your money managed by expert investers. You can start with a little &#163;1, which is then invested into a portfolio that is personally managed for you and accessible online 24/7.
 					</p>
-
-					<p class="second_text text-center text-padding-top text-padding-bottom">
-					WealthDunk's free and independet comparison service can find you a suitable investment platform in minutes.
-				</p>
 				</div>
 			</div>
 			<div class="row">
-				
+				<p class="semi_bold text-center text-padding-top text-padding-bottom">
+					WealthDunk's free and independet comparison service can find you a suitable investment platform in minutes.
+				</p>
+				<br><br><br>
 			</div>
-			<br><br><br><br>
 		</div>
 		<div class="form-container container">
 			<div class="row">
@@ -77,10 +75,11 @@
 								</div>
 							</div>
 							<div class="col-md-offset-4 col-md-4">
-								<h4><b>Showing 1 - 6 of 6 results</b></h4>
+								<h4 class="pull-right"><b>Showing 1 - 6 of 6 results</b></h4>
 							</div>
 						</div>
 					</form>
+					<br><br>
 				</div>
 			</div>
 			<div class="row">
@@ -120,57 +119,130 @@
 				</div>
 			</div>
 			<div class="row investor-calcutions" ng-repeat="investor in investors">
-				<div class="col-md-2">
-					<img ng-src="{{investor.image}}" width="110" height="60" />
-					<p class="text-center">{{investor.company}}</p>
-				</div>
-				<div class="col-md-2">
-					<div>{{investor.management_pa}}%</div>
-					<div>&#163; {{ amount * investor.management_pa / 100 | number : 2}}</div>
-					<i> + </i>
-				</div>
-				<div class="col-md-2">
-					<div>{{investor.underlying_pa}}%</div>
-					<div>&#163; {{amount * investor.underlying_pa / 100 | number : 2}}</div>
-					<i> + </i>
-				</div>
-				<div class="col-md-2">
-					<div>{{investor.initial_contribution_pa}}%</div>
-					<div>- - -</div>
-					<i> = </i>
-				</div>
-				<div class="col-md-2">
-					<div>{{investor.management_pa + investor.underlying_pa + investor.initial_contribution_pa| number : 2}}%</div>
-					<div>&#163; {{amount * (investor.management_pa + investor.underlying_pa + investor.initial_contribution_pa) / 100 | number : 2}}</div>
-				</div>
-				<div class="col-md-2">
-					<div>{{investor.initial_investment}} <span ng-show="investor.initial_investment != '-'"></span></div>
-					<div ng-show="investor.initial_investment != '-'">
-						&#163; {{amount * investor.initial_investment / 100 | number : 2}}
+				<div class="accordion-heading">
+				    <div class="col-md-2">
+						<img ng-src="{{investor.image}}" width="110" height="60" />
+						<p class="text-center">{{investor.company}}</p>
 					</div>
-					<div class="pull-right" style="position:absolute; top:0px; right:-80px;padding-top:2px;">
-						<a href="javascript:void(0);" class="btn btn-info btn-sm btn-block" target="_blank">Go to Website</a>
-						<a href="javascript:void(0);" class="btn btn-success btn-sm btn-block" data-toggle="collapse" data-target="#{{investor.slug}}">More details
-						</a>
+					<div class="col-md-2">
+						<div>{{investor.management_pa}}%</div>
+						<div>&#163; {{ amount * investor.management_pa / 100 | number : 2}}</div>
+						<i> + </i>
 					</div>
-				</div>
-				<!-- <div id="{{investor.slug}}" class="collapse investors-info" style="background:#f1f1f1; padding:10px 20px; margin-top:85px;">
-					<div class="row">
-						<div class="col-md-8">
-							<ul style="list-style:none; text-align:left; font-weight:normal;">
-								<li>
-									Manage 10 risk levels, each with a different mix of investment assets. They range from 'cautious' to 'aggressive'
-								</li>
-								<li>
-									Online questionnaire will help you determine which of the 10 risk-based portfolios is best for you
-								</li>
-								<li>
-									Typically rebalance customers portfolios once a month to keep them in line with the original optimal balance. May occasionaly decide on different allocations they believe are more suitable for customers in that particular month
-								</li>
-							</ul>
+					<div class="col-md-2">
+						<div>{{investor.underlying_pa}}%</div>
+						<div>&#163; {{amount * investor.underlying_pa / 100 | number : 2}}</div>
+						<i> + </i>
+					</div>
+					<div class="col-md-2">
+						<div>{{investor.initial_contribution_pa}}%</div>
+						<div>&#163; {{amount * investor.initial_contribution_pa / 100 | number: 2}}</div>
+						<i> = </i>
+					</div>
+					<div class="col-md-2">
+						<div>{{investor.management_pa + investor.underlying_pa + investor.initial_contribution_pa| number : 2}}%</div>
+						<div>&#163; {{amount * (investor.management_pa + investor.underlying_pa + investor.initial_contribution_pa) / 100 | number : 2}}</div>
+					</div>
+					<div class="col-md-1">
+						<div>{{investor.initial_investment}}<span ng-show="investor.initial_investment != '-'">%</span></div>
+						<div ng-show="investor.initial_investment != '-'">
+							&#163; {{amount * investor.initial_investment / 100 | number : 2}}
 						</div>
 					</div>
-				</div> -->
+					<div class="col-md-1">
+						<div class="pull-right">
+							<a href="javascript:void(0);" style="display:none;" class="btn-close"><i class="fa fa-times fa-md" aria-hidden="true"></i></a>
+							<a href="{{investor.website}}" class="btn-website btn btn-info btn-block" target="_blank">Go to Website</a>
+							<a href="javascript:void(0);" class="btn-more-details btn btn-zinc btn-block" data-toggle="collapse" data-target="#{{investor.slug}}">More details
+							</a>
+						</div>
+					</div>
+				</div>
+				<div id="{{investor.slug}}" class="accordion-body collapse">
+				    <div>
+				        <div class="well well-small">
+				            <div class="accordion-toggle">
+				            	<div class="row additional-info">
+					                <div class="col-md-5">
+					                	<h5>Additional Information</h5>
+					                	<ul>
+					                		<li class="semi_bold" ng-repeat="ai in investor.additional_info">
+					                			{{ai}}
+					                		</li>
+					                	</ul>
+					                </div>
+					                <div class="col-md-3">
+					                	<h5>Fixed Band Fees</h5>
+					                	<ul class="fee-bands">
+					                		<li class="semi_bold" ng-repeat="ff in investor.fixed_fees">
+					                			<b ng-bind-html-unsafe="ff"></b>
+					                		</li>
+					                	</ul>
+					                </div>
+					                <div class="col-md-4">
+					                	<div>
+					                		<div>
+					                			<a href="{{investor.website}}" class="btn btn-custom btn-block" target="_blank">Go to Website</a>
+					                		</div>
+					                		<div class="row right-block">
+				                				<div class="col-md-6 semi_bold" ng-repeat="rbf in investor.right_box">
+					                				<small style="width:80px; font-size:12px;"ng-bind-html-unsafe="rbf.key"></small>
+					                				<span class="pull-right" ng-bind-html-unsafe="rbf.value"></span>
+					                			</div>
+					                		</div>
+					                	</div>
+					                </div>
+				                </div>
+					            <div class="row additional-info">
+					                <div class="col-md-3">
+					                	<h5>Minimum investments and monthly contributions</h5>
+			                			<p class="semi_bold">{{investor.mmi}}</p>
+					                </div>
+					                <div class="col-md-2">
+					                	<h5>Withdrawl Fees</h5>
+			                			<p class="semi_bold">{{investor.wd_fees}}</p>
+					                </div>
+					                <div class="col-md-3">
+					                	<h5>Top-up Fees</h5>
+				                		<p class="semi_bold" >{{investor.topup_fees}}</p>
+					                </div>
+				                </div>
+				                <div class="row additional-info-features">
+					                <div class="col-md-8">
+					                	<div class="row">
+					                		<div class="col-md-6">
+					                			<h5><b>Fantastic...</b></h5>
+					                			<ul class="no-style">
+					                				<li class="semi_bold" ng-repeat="fan in investor.fantastic">
+					                					<span ng-bind-html-unsafe="fan"></span>
+					                				</li>
+					                			</ul>
+					                		</div>
+					                		<div class="col-md-6">
+					                			<h5><b>Watch Out...</b></h5>
+					                			<ul class="no-style">
+					                				<li class="semi_bold" ng-repeat="wo in investor.watchout">
+					                					<span ng-bind-html-unsafe="wo"></span>
+					                				</li>
+					                			</ul>
+					                		</div>
+					                	</div>
+					                </div>
+				                </div>
+				                <div class="row additional-info">
+					                <div class="col-md-8">
+					                	<ul>
+					                		<li style="padding:10px 0px 0px;" ng-repeat="country in investor.countries">
+					                			{{country}}
+					                		</li>
+					                	</ul>
+					                </div>
+				                </div>
+				            </div>
+				        </div>
+				    </div>
+				    <div class="span2"></div>                            
+				</div>
 			</div>
 		</div>
 		<footer class="container-fluid">
@@ -245,7 +317,7 @@
 					<div class="container">
 						<div class="row">
 							<div class="col-md-8">
-								<h4 class="text-center">You are here: Robo Comparison Page</h4>
+								<h4 class="text-center">You are here: Robo Comparision Page</h4>
 							</div>
 							<div class="col-md-4">
 								<img src="img/Wealthdunk_white_logo.png" width="270" style="padding-left:40px;" />
@@ -273,5 +345,28 @@
 		<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
 		<script src="controller.js"></script>
+		<script type="text/javascript">
+			$(document).on('click','.btn-more-details', function(){
+				var parent = $(this).parent().parent().parent().parent();
+				$(this).parent().parent().addClass('btn-close-design');
+				parent.addClass("white-bg");
+				$(this).prev().css('display', 'none');
+				$(this).css('display', 'none');
+				$(this).prev().prev().css('display', 'block');
+				console.log(parent);
+			});
+
+			$(document).on('click','.btn-close', function(){
+				var parent = $(this).parent().parent().parent();
+				var gparent = parent.parent();
+				$(this).parent().parent().removeClass('btn-close-design');
+				gparent.removeClass("white-bg");
+				parent.next().removeClass('in');
+				$(this).next().css('display', 'block');
+				$(this).next().next().css('display', 'block');
+				$(this).css('display', 'none');
+				console.log(parent);
+			});
+		</script>
 	</body>
 </html>
